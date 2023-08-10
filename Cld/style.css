@@ -52,12 +52,55 @@ h2,p {
 }
 
 /* кнопка переключения меню, появляющаяся при ширине 1024px */
-.nav-toggle {
+
+.burger {
     display: none;
+    position: relative;
+    align-items: center;
     width: 30px;
     height: 23px;
-    background: url(./img/Component\ 6.svg) no-repeat;
+    z-index: 11;
 }
+
+.burger span {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    transform: scale(1);
+}
+
+.burger::before, .burger::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    transition: all 0.3s ease 0s;
+}
+
+.burger::before {
+    top: 0;
+}
+
+.burger::after {
+    bottom: 0;
+}
+
+/* убираем среднюю */
+.burger.active span {
+    transform: scale(0);
+}
+
+.burger.active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0, -50%);
+}
+
+.burger.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(1px, 50%);
+}
+
 
 .header-logo {
     width: auto;
@@ -166,25 +209,79 @@ h2,p {
     margin-bottom: 50px;
 }
 
-/* .section-hero__container {
-    background: url(./img/low-angle-photo-of-balconies-2462015\ 1.png) center no-repeat;
-    background-size: contain;
-    padding: 100px 80px;
+.section-hero__container {
+    position: relative;
+}
+
+.swiper {
+    height: 620px;
+}
+
+.swiper .swiper-pagination {
+    margin-bottom: 22px;
+}
+
+.swiper .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    background: #CACACA;
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+.hero-slide1 {
+    background-image: url(./img/low-angle-photo-of-balconies-2462015\ 1.png);
+}
+
+.hero-slide2 {
+    background-image: url(./img/hero-backgr-2.jpg);
+}
+
+.hero-slide3 {
+    background-image: url(./img/hero-backgr-3.jpg);
+}
+
+.swiper-slide {
+    background-size: 100% 100%;
+}
+
+/* .swiper-slide1 {
+    background: url(./img/low-angle-photo-of-balconies-2462015\ 1.png) no-repeat;
+    background-size: 100% 100%; 
+}
+
+.swiper-slide2 {
+    background: url(./img/hero-backgr-2.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.swiper-slide3 {
+    background: url(./img/hero-backgr-3.jpg) no-repeat;
+    background-size: 100% 100%;
 } */
 
 .section-hero__background {
     padding: 100px 80px;
     border-radius: 32px;
     background: url(./img/low-angle-photo-of-balconies-2462015\ 1.png) no-repeat;
-    background-size: 100% 100%;
-    
+    background-size: 100% 100%;   
 }
 
 .section-hero__item {
-    max-width: 58%;
+    position: absolute;
+    top: 0;
+    /* max-width: 52%; */
+    padding-left: 80px;
+    padding-top: 100px;
+    z-index: 1;
 }
 
 .section-hero__heading {
+    max-width: 837px;
     font-size: 70px;
     line-height: 85.33px;
     font-weight: 800;
@@ -193,6 +290,7 @@ h2,p {
 }
 
 .section-hero__description {
+    max-width: 837px;
     font-size: 24px;
     line-height: 30.3px;
     font-weight: 700;
@@ -210,7 +308,7 @@ h2,p {
 }
 
 .section-hero-btn {
-    margin-top: 88px;
+    margin-top: 10.6%;
     background-color: #FF9900;
 }
 
@@ -408,7 +506,6 @@ h2,p {
 }
 
 .section-work__item-link:active {
-    cursor: pointer;
     color: #E1670E;
 }
 
@@ -522,12 +619,74 @@ h2,p {
     margin-bottom: 98px;
 }
 
+.aside-questions__heading-icon {
+    padding: 0;
+}
+
+#accordion h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: unset;
+    margin: 0;
+    margin-bottom: 30px;
+    padding-top: 39px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    border: none;
+    border-top: 1px solid #cacaca;
+    background: transparent;
+    color: black;
+}
+
+#accordion h3:focus .aside-questions__icon-circle {
+    transition: transform .3s linear 0s;
+    transform: rotate(45deg);
+}
+
+#accordion h3 .ui-icon {
+    display: none;
+}
+
+#accordion .ui-accordion-content {
+    border: none;
+    padding: unset;
+}
+
+#accordion .ui-accordion-content:last-child {
+    border-bottom: 1px solid #cacaca;
+}
+
+#accordion .ui-corner-top {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#accordion .ui-corner-bottom {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
 .aside-questions__heading {
     padding-top: 5px;
     margin-bottom: 37px;
     font-size: 48px;
     line-height: 48px;
     font-weight: 400;
+}
+
+.aside-questions__text {
+    width: 53%;
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 2;
+    font-weight: 400;
+}
+
+.first-text {
+    margin-bottom: 2em;
 }
 
 .aside-questions__item {
@@ -802,7 +961,7 @@ h2,p {
     color: white;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1185px) {
 
     .container {
         padding-left: 50px;
@@ -814,12 +973,37 @@ h2,p {
         width: auto;
     }
 
-    .nav-toggle {
-        display: block;
+    .burger {
+        display: flex;
+    }
+
+    .header-list-icon {
+        color: #333;
+    }
+
+    .open {
+        display: flex !important;
     }
 
     .header-nav {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        height: 100vh;
+        width: 420px;
+        padding-top: 170px;
+        padding-left: 50px;
+        border-radius: 0 0 32px 32px;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: white;
+        filter: drop-shadow(0 0 30px rgba(0,0,0,0.1))
+    }
+
+    .header-list {
+        flex-direction: column;
+        row-gap: 60px;
     }
 
     .header-logo {
@@ -831,14 +1015,26 @@ h2,p {
         padding-left: 0;
     }
 
-    .section-hero__background {
+    /* .section-hero__background {
         padding: 160px 77px;
         background: url(./img/1024px/low-angle-photo-of-balconies-2462015\ 1.jpg) no-repeat;
         background-size: 100% 100%;
+    } */
+
+    .hero-slide1 {
+        background-image: url(./img/1024px/low-angle-photo-of-balconies-2462015\ 1.jpg);
+    }
+    
+    .hero-slide2 {
+        background-image: url(./img/1024px/hero-pic-1024-2.jpg);
+    }
+    
+    .hero-slide3 {
+        background-image: url(./img/1024px/hero-pic-1024-3.jpg);
     }
 
     .section-hero__item {
-        max-width: 100%;
+        max-width: 84%;
     }
 
     .section-hero__heading {
@@ -896,6 +1092,26 @@ h2,p {
     .section-work__item {
         margin-bottom: 32px;
     }
+
+    .img1 {
+        background: url(./img/1024px/Rectangle\ 18.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img2 {
+        background: url(./img/1024px/how-pic-1024-2.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img3 {
+        background: url(./img/1024px/how-pic-1024-3.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img4 {
+        background: url(./img/1024px/how-pic-1024-4.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
     
     .aside-questions {
         margin-bottom: 80px;
@@ -904,6 +1120,10 @@ h2,p {
     .aside-questions__icon {
         max-width: 85.4%;
         font-size: 20px;
+    }
+
+    .aside-questions__text {
+        width: 100%;
     }
 
     .footer-first-column {
@@ -935,16 +1155,37 @@ h2,p {
         line-height: 60.95px;
     }
 
-    .section-hero__background {
+    /* .section-hero__background {
         padding: 160px 40px;
         background: url(./img/768px/low-angle-photo-of-balconies-2462015\ 1.jpg) no-repeat;
         background-size: 100% 100%;
         border-radius: 24px;
+    } */
+
+    .swiper {
+        height: 662px;
+    }
+
+    .hero-slide1 {
+        background-image: url(./img/768px/low-angle-photo-of-balconies-2462015\ 1.jpg);
+    }
+    
+    .hero-slide2 {
+        background-image: url(./img/768px/hero-pic-768-2.jpg);
+    }
+    
+    .hero-slide3 {
+        background-image: url(./img/1024px/hero-pic-1024-3.jpg);
     }
 
     .section-hero__description {
         font-size: 18px;
         line-height: 21.94px;
+    }
+
+    .section-hero__item {
+        padding-top: 160px;
+        padding-left: 40px;
     }
 
     .section-about-us__description {
@@ -986,20 +1227,24 @@ h2,p {
         margin-bottom: 49px;
     }
 
+    .section-work__contant {
+        width: 100%;
+    }
+
     .section-work__steps {
         justify-content: space-between;
         margin-bottom: 50px;
     }
 
     .section-work__steps-item:not(:last-child) {
-        margin-right: 0;
+        padding-right: 0;
     }    
 
     .br {
         display: none;
     }
 
-    .section-work__description {
+    .section-work__description-active {
         display: block;
     }
 
@@ -1013,11 +1258,29 @@ h2,p {
 
     .section-work__item::before {
         content: "";
-        display: block;
-        background: url(./img/768px/Rectangle\ 18.jpg) no-repeat;
+        display: block;  
         min-height: 284px;
-        background-size: 100% 100%;
         margin-bottom: 38px;
+    }
+
+    .work-img1 {
+        background: url(./img/768px/Rectangle\ 18.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img2 {
+        background: url(./img/768px/how-pic-768-2.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img3 {
+        background: url(./img/768px/how-pic-768-3.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img4 {
+        background: url(./img/768px/how-pic-768-4.jpg) no-repeat;
+        background-size: contain;
     }
 
     .section-work__item {
@@ -1119,11 +1382,41 @@ h2,p {
         margin-bottom: 60px;
     }
 
-    .section-hero__background {
+    /* .section-hero__background {
         padding: 60px 21px 59px 22px;
         border-radius: 16px;
         background: url(./img/320px/low-angle-photo-of-balconies-320px.jpg) no-repeat;
         background-size: 100% 100%;
+    } */
+
+    .section-hero__item {
+        padding-top: 60px;
+        padding-left: 22px;
+    }
+
+    .swiper {
+        height: 308px;
+    }
+
+    .swiper .swiper-pagination {
+        margin-bottom: 7px;
+    }
+
+    .swiper .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero-slide1 {
+        background-image: url(./img/320px/low-angle-photo-of-balconies-320px.jpg);
+    }
+    
+    .hero-slide2 {
+        background-image: url(./img/320px/hero-pic-320-2.jpg);
+    }
+    
+    .hero-slide3 {
+        background-image: url(./img/320px/hero-pic-320-3.jpg);
     }
 
     .section-hero__item {
@@ -1151,6 +1444,7 @@ h2,p {
         font-size: 12px;
         line-height: 14.63px;
     }
+
 
     .section-about-us {
         margin-bottom: 60px;
@@ -1246,15 +1540,31 @@ h2,p {
         line-height: 17.07px;
     }
 
-    .section-work__steps-item:not(:last-child) {
-        margin-right: 44px;
-    }
-
     .section-work__item::before {
         content: "";
+        min-height: unset;
         height: 160px;
         margin-bottom: 16px;
+    }
+
+    .work-img1 {
         background: url(./img/320px/Rectangle\ 18.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img2 {
+        background: url(./img/320px/how-pic-320-2.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img3 {
+        background: url(./img/320px/how-pic-320-3.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .work-img4 {
+        background: url(./img/320px/how-pic-320-4.jpg) no-repeat;
+        background-size: contain;
     }
 
     .section-work__item-heading {
@@ -1263,7 +1573,7 @@ h2,p {
         font-weight: 500;
     }
 
-    .section-work__left-description {
+    .section-work__contant-description {
         font-size: 14px;
         line-height: 28px;
     }
@@ -1282,6 +1592,26 @@ h2,p {
         align-items: start;
         justify-content: space-between;
     }
+
+    .img1 {
+        background: url(./img/320px/Rectangle\ 18.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img2 {
+        background: url(./img/320px/how-pic-320-2.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img3 {
+        background: url(./img/320px/hero-pic-320-3.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
+    
+    .img4 {
+        background: url(./img/320px/how-pic-320-4.jpg) no-repeat;
+        background-size: 100% 100%;
+    }
     
     /* aside-questions */
 
@@ -1295,6 +1625,16 @@ h2,p {
         line-height: 29.26px;
     }
 
+    #accordion h3 {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+
+    .aside-questions__text {
+        width: 100%;
+    }
+
     .aside-questions__icon {
         padding: 30px 0;
         font-size: 14px;
@@ -1305,6 +1645,7 @@ h2,p {
     .aside-questions__icon-circle {
         width: 30px;
         height: 30px;
+        flex-shrink: 0;
     }
 
     /* footer */

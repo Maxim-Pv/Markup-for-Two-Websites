@@ -9,4 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(`[data-target="${path}"]`).classList.add('section-work__description-active')
         })
     })
+
+    document.querySelector('.burger').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.querySelector('.header-nav').classList.toggle('open');    
+    })
 })
+
+
+
+

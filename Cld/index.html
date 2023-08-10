@@ -8,16 +8,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/normalize.css">
+
     <title>Cld</title>
+    <!-- from Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- from jquery -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $( function() {
+        var icons = {
+            header: "ui-icon-circle-arrow-e",
+            activeHeader: "ui-icon-circle-arrow-s"
+        };
+        $( "#accordion" ).accordion({
+            heightStyle: "content",
+            icons: icons
+        });
+    } );
+    </script>
+    
 </head>
 <body>
     <header class="header">      
         <div class="container header-container">
-            <div class="nav-toggle"><span></span></div>      
+            <div class="burger"><span></span></div>      
             <a href="" class="header-logo">
                 <img src="./img/Logo-1.svg" class="logo-img" alt="">
             </a>       
-            <nav class="header-nav">
+            <nav class="header-nav" data-target="list-icon">
                 <ul class="header-list">
                     <li class="header-list-item">
                         <a href="" class="header-list-icon">О нас</a>
@@ -48,13 +71,28 @@
     <main>
         <section class="section-hero">
             <div class="container section-hero__container">
-                <div class="section-hero__background">
+                <!-- <div class="section-hero__background"> -->
+                    <!-- Slider main container -->
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide hero-slide1"></div>      
+                            <div class="swiper-slide hero-slide2"></div>
+                            <div class="swiper-slide hero-slide3"></div>                                           
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+ 
+                    </div>
+
                     <div class="section-hero__item">
                         <h1 class="section-hero__heading">Проектные решения любой сложности</h1>
                         <p class="section-hero__description">Есть над чем задуматься: базовые сценарии поведения пользователей и по сей день остаются уделом проектантов</p>
                         <a href="" class="btn section-hero-btn">Заказать расчёт</a>
                     </div>                    
-                </div>                
+
+                <!-- </div>                 -->
             </div>
         </section>
         <section class="section-about-us">
@@ -107,7 +145,7 @@
                 </ul>
                 <div class="section-work__description" data-target="one">
                     <div class="section-work__contant">
-                        <div class="section-work__item">
+                        <div class="section-work__item work-img1">
                             <strong class="section-work__item-heading">Проводим консультацию</strong>
                             <p class="section-work__contant-description">Влечёт за собой процесс внедрения и модернизации приоритизации разума над эмоциями. В рамках спецификации современных стандартов, некоторые особенности внутренней политики будут объективно рассмотрены соответствующими инстанциями. <br class="br">
                             А также представители современных социальных резервов, инициированные исключительно синтетически, ограничены исключительно образом мышления. Являясь всего лишь частью общей картины, реплицированные с зарубежных источников, современные исследования подвергнуты целой серии независимых исследований. Кстати, стремящиеся вытеснить традиционное производство, нанотехнологии освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, призваны к ответу.</p>
@@ -117,14 +155,11 @@
                             <a href=""  class="btn section-work__btn2">Договор</a>
                         </div>
                     </div>
-                    <div class="section-work__img img1">
-                        <!-- <img src="./img/Rectangle 18.png" alt=""> -->
-                        <!-- <span class="section-work__right-img"></span> -->
-                    </div>
+                    <div class="section-work__img img1"></div>                   
                 </div>
                 <div class="section-work__description" data-target="two">
                     <div class="section-work__contant">
-                        <div class="section-work__item">
+                        <div class="section-work__item work-img2">
                             <strong class="section-work__item-heading">Составляем смету</strong>
                             <p class="section-work__contant-description">Внедрения и модернизации приоритизации разума над эмоциями. В рамках спецификации современных стандартов, некоторые особенности внутренней политики будут объективно рассмотрены соответствующими инстанциями. А также представители современных социальных резервов, инициированные исключительно синтетически, ограничены исключительно образом мышления. Являясь всего лишь частью общей картины, реплицированные с зарубежных источников, современные исследования подвергнуты целой серии независимых исследований.</p>
                         </div>
@@ -137,7 +172,7 @@
                 </div> 
                 <div class="section-work__description" data-target="three">
                     <div class="section-work__contant">
-                        <div class="section-work__item">
+                        <div class="section-work__item work-img3">
                             <strong class="section-work__item-heading">Привлекаем подрядчиков</strong>
                             <p class="section-work__contant-description">Идейные соображения высшего порядка, а также новая модель организационной деятельности требует анализа прогресса профессионального сообщества. Высокий уровень вовлечения представителей целевой аудитории является чётким доказательством простого факта: высококачественный прототип будущего проекта напрямую зависит от дальнейших направлений развития. Разнообразный и богатый опыт говорит нам, что новая модель организационной деятельности говорит о возможностях системы массового участия. Принимая во внимание показатели успешности, постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет выполнить важные задания по разработке прогресса профессионального сообщества.</p>
                         </div>
@@ -150,7 +185,7 @@
                 </div>
                 <div class="section-work__description" data-target="four">
                     <div class="section-work__contant">
-                        <div class="section-work__item">
+                        <div class="section-work__item work-img4">
                             <strong class="section-work__item-heading">Инспектируем все этапы работ</strong>
                             <p class="section-work__contant-description">Высокий уровень вовлечения представителей целевой аудитории является чётким доказательством простого факта: высококачественный прототип будущего проекта напрямую зависит от дальнейших направлений развития. Разнообразный и богатый опыт говорит нам, что новая модель организационной деятельности говорит 
                                 о возможностях системы массового участия. Принимая во внимание показатели успешности, постоянное информационно-пропагандистское обеспечение нашей деятельности позволяет.</p>
@@ -168,53 +203,75 @@
         <aside class="aside-questions">
             <div class="container">
                 <h2 class="aside-questions__heading">Часто задаваемые вопросы</h2>
-                <ul class="aside-questions__contant">
-                    <li class="aside-questions__item">                   
-                        <a href="" class="aside-questions__icon aside-questions__icon1">Из чего формируется конечная стоимость проекта?</a>                                             
-                        <a href="" class="aside-questions__icon-link">
+                    <div id="accordion">
+                        <h3 class="aside-questions__heading-icon">Из чего формируется конечная стоимость проекта? 
                             <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
                             </svg>
-                        </a>   
-                    </li>
-                    <li class="aside-questions__item">
-                        <a href="" class="aside-questions__icon aside-questions__icon2">У меня есть свой проект. Сможем ли мы его доработать / реализовать?</a>
-                        <a href="" class="aside-questions__icon-link">
-                            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
-                            </svg>   
-                        </a>
-                    </li>
-                    <li class="aside-questions__item">
-                        <a href="" class="aside-questions__icon aside-questions__icon3">Я выбираю между разными компаниями. В чём ваше отличие?</a>
-                        <a href="" class="aside-questions__icon-link">
-                            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
-                            </svg>
-                        </a>                         
-                    </li>
-                    <li class="aside-questions__item">
-                        <a href="" class="aside-questions__icon aside-questions__icon4">Могу ли я делегировать вам работу / согласование с подрядчиком / организацией?</a>
-                        <a href="" class="aside-questions__icon-link">
+                        </h3>
+                        
+                        <div>
+                            <p class="aside-questions__text first-text">
+                                Являясь всего лишь частью общей картины, непосредственные участники технического прогресса призывают нас 
+                                к новым свершениям, которые, в свою очередь, должны быть своевременно верифицированы. 
+                                Но высококачественный прототип будущего проекта является качественно новой ступенью первоочередных требований. А ещё некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. И нет сомнений, что явные признаки победы институционализации призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.
+                            </p>
+                            <p class="aside-questions__text">
+                                Приятно, граждане, наблюдать, как некоторые особенности внутренней политики могут быть призваны к ответу. Явные признаки победы институционализации набирают популярность среди определённых слоёв населения, 
+                                а значит, должны быть объединены в целые кластеры себе подобных. Банальные, но неопровержимые выводы, 
+                                а также многие известные личности призывают нас к новым свершениям, которые, в свою очередь, должны быть представлены в исключительно положительном свете.
+                            </p>
+                        </div>
+                        <h3>У меня есть свой проект. Сможем ли мы его доработать / реализовать?
                             <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
                             </svg>
-                        </a>                        
-                    </li>
-                    <li class="aside-questions__item">
-                        <a href="" class="aside-questions__icon aside-questions__icon5">Могу ли я вернуть деньги на каком-либо из этапов работ?</a>
-                        <a href="" class="aside-questions__icon-link">
+                        </h3>
+                        <div>
+                            <p class="aside-questions__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, alias commodi expedita officia beatae recusandae molestias tempore quis atque quibusdam consequuntur veritatis, ab quia deserunt, non quam ipsum eum omnis?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ad officia enim iure dolor, ipsa reiciendis ratione, deleniti ipsam laborum magnam ullam quod quibusdam dolorum qui odit cumque quas illum.
+                            </p>
+                        </div>
+                        <h3>Я выбираю между разными компаниями. В чём ваше отличие?
                             <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
                             </svg>
-                        </a>                     
-                    </li>
-                </ul>
+                        </h3>
+                        <div>
+                            <p class="aside-questions__text">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam asperiores, possimus voluptate, dicta ullam, repudiandae beatae explicabo quasi minima ut itaque architecto hic voluptates quis? Aliquid iure modi similique eius?
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sint iste dignissimos amet voluptas error nisi inventore placeat? Culpa facilis obcaecati voluptate consectetur perspiciatis? Nemo cumque recusandae aliquid cupiditate corporis.
+                            </p>
+                        </div>
+                        <h3>Могу ли я делегировать вам работу / согласование с подрядчиком / организацией?
+                            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+                            </svg>
+                        </h3>
+                        <div>
+                            <p class="aside-questions__text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic reiciendis commodi illum. Odit recusandae voluptatibus maiores quam reprehenderit quas tenetur corporis id adipisci, nulla eos soluta totam impedit iste praesentium?
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam accusamus quia delectus, expedita voluptatem cum ullam placeat qui. Esse, labore! Aut, eius? Ex obcaecati, ullam sint illo repellat dolorum. Officia.
+                            </p>
+                        </div>
+                        <h3>Могу ли я вернуть деньги на каком-либо из этапов работ?
+                            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+                            </svg>
+                        </h3>
+                        <div>
+                            <p class="aside-questions__text">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius excepturi assumenda est quae aperiam qui iure magnam tempora aspernatur temporibus nesciunt accusantium iste, cupiditate repudiandae? Nisi doloremque non delectus quibusdam?
+                            </p>
+                        </div>
+                </div>
+                
             </div>
         </aside>
     </main>
@@ -309,5 +366,72 @@
     </footer>
     
     <script src="./js/tabs.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                },
+            },
+        });
+    </script>
 </body>
 </html>
+
+
+
+
+
+<!-- <h2 class="aside-questions__heading">Часто задаваемые вопросы</h2>
+<ul class="aside-questions__contant">
+    <li class="aside-questions__item">                   
+        <a href="" class="aside-questions__icon aside-questions__icon1">Из чего формируется конечная стоимость проекта?</a>                                             
+        <a href="" class="aside-questions__icon-link">
+            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+            </svg>
+        </a>   
+    </li>
+    <li class="aside-questions__item">
+        <a href="" class="aside-questions__icon aside-questions__icon2">У меня есть свой проект. Сможем ли мы его доработать / реализовать?</a>
+        <a href="" class="aside-questions__icon-link">
+            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+            </svg>   
+        </a>
+    </li>
+    <li class="aside-questions__item">
+        <a href="" class="aside-questions__icon aside-questions__icon3">Я выбираю между разными компаниями. В чём ваше отличие?</a>
+        <a href="" class="aside-questions__icon-link">
+            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+            </svg>
+        </a>                         
+    </li>
+    <li class="aside-questions__item">
+        <a href="" class="aside-questions__icon aside-questions__icon4">Могу ли я делегировать вам работу / согласование с подрядчиком / организацией?</a>
+        <a href="" class="aside-questions__icon-link">
+            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+            </svg>
+        </a>                        
+    </li>
+    <li class="aside-questions__item">
+        <a href="" class="aside-questions__icon aside-questions__icon5">Могу ли я вернуть деньги на каком-либо из этапов работ?</a>
+        <a href="" class="aside-questions__icon-link">
+            <svg class="aside-questions__icon-circle" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="25" cy="25" rx="25" ry="25" fill="#CACACA"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0571 24.0571L25.0571 9L25.9429 9L25.9429 24.0571L33.8835 24.0571L41 24.0571L41 24.9429L25.9429 24.9429L25.9429 40L25.0571 40L25.0571 24.9429L10 24.9429L10 24.0571L25.0571 24.0571Z" fill="black"/>
+            </svg>
+        </a>                     
+    </li>
+</ul> -->
